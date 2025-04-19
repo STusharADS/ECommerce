@@ -8,6 +8,7 @@ function App() {
   return (
     <>
       <div className='underline text-red-400'>ECommerce</div>
+      <div>hello2</div>
     </>
   )
 }

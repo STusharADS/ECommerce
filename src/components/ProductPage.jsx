@@ -36,14 +36,14 @@ function ProductPage() {
   }
 
   return (
-    <div className="bg-gradient-to-br from-black via-[#0f172a] to-black min-h-screen text-white px-4">
+    <div className="bg-gradient-to-br from-black via-[#0f172a] to-black min-h-screen text-white px-2 sm:px-4">
       <Banner />
 
-      <div className="text-4xl text-yellow-400 font-extrabold italic text-center mt-8 mb-4 animate-pulse drop-shadow-lg">
+      <div className="text-3xl sm:text-4xl text-yellow-400 font-extrabold italic text-center mt-8 mb-4 animate-pulse drop-shadow-lg">
         Hot Deals
       </div>
 
-      <div className="grid gap-6 justify-center grid-cols-[repeat(auto-fit,_minmax(180px,_1fr))] max-w-7xl mx-auto px-2">
+      <div className="grid gap-4 sm:gap-6 justify-center grid-cols-[repeat(auto-fit,_minmax(140px,_1fr))] max-w-7xl mx-auto px-1 sm:px-2">
         {paginatedData.map((proObj) => (
           <Card
             key={proObj.id}

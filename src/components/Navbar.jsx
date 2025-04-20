@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import logo from '../assets/shoplogovibcopy3.jpeg';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react'; // For hamburger icon
+import { Menu, X } from 'lucide-react';
 
 function Navbar({ userName }) {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-[#0f172a] text-white shadow-md px-4 py-3">
+    <nav className="bg-gradient-to-r from-[#1e1b4b] via-[#0f172a] to-[#111827] text-white shadow-md px-4 py-3">
       <div className="flex items-center justify-between">
         {/* Left: Logo and Title */}
         <div className="flex items-center space-x-4">
           <img src={logo} alt="Shop Logo" className="w-12 h-12 rounded-full" />
           <Link
             to="/"
-            className={`text-xl md:text-2xl font-bold ${location.pathname === "/" ? "text-sky-400" : ""}`}
+            className={`text-xl md:text-2xl font-bold ${location.pathname === "/" ? "text-sky-400" : ""} hover:text-yellow-400`}
           >
             Smile Shop
           </Link>
@@ -50,7 +50,7 @@ function Navbar({ userName }) {
               to="/signin"
               className={`text-xl font-semibold hover:text-yellow-400 ${location.pathname === "/signin" ? "text-sky-400" : ""}`}
             >
-              Sign In
+              Sign Up
             </Link>
           )}
         </div>

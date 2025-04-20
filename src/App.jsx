@@ -6,6 +6,7 @@ import SignIn from './components/SignIn.jsx'
 import ProductPage from './components/ProductPage.jsx'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { MovieContext } from './context/ProductContext.jsx'
+import Faq from './components/Faq.jsx';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -48,6 +49,7 @@ function App() {
           <Route path="/" element={<ProductPage />} />
           <Route path="/cart" element={<Cart cart={cart} handleDeleteFromCart={handleDeleteFromCart} />} />
           <Route path="/signin" element={<SignIn setUserName={setUserName} />} />
+          <Route path="/faq" element={<Faq/>} />
         </Routes>
       </BrowserRouter>
     </MovieContext.Provider>

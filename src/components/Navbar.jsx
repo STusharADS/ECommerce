@@ -22,9 +22,16 @@ function Navbar({ userName }) {
         >
           Cart
         </Link>
+        <Link
+          to="/faq"
+          className={`text-2xl font-bold ${location.pathname === "/faq" ? "text-sky-400" : ""}`}
+        >
+          FAQ
+        </Link>
+
       </div>
 
-      
+
       <div>
         {userName ? (
           <div className="text-xl font-semibold text-green-400">

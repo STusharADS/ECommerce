@@ -1,51 +1,91 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../assets/shoplogovibcopy3.jpeg';
 import { Link, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react'; // For hamburger icon
 
 function Navbar({ userName }) {
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="flex items-center justify-between px-6 py-4 bg-[#0f172a] text-white shadow-md">
-
-      <div className="flex items-center space-x-8">
-        <img height="100px" width="100px" src={logo} alt="Shop Logo" />
-        <Link
-          to="/"
-          className={`text-2xl font-bold ${location.pathname === "/" ? "text-sky-400" : ""}`}
-        >
-          Smile Shop
-        </Link>
-        <Link
-          to="/cart"
-          className={`text-2xl font-bold ${location.pathname === "/cart" ? "text-sky-400" : ""}`}
-        >
-          Cart
-        </Link>
-        <Link
-          to="/faq"
-          className={`text-2xl font-bold ${location.pathname === "/faq" ? "text-sky-400" : ""}`}
-        >
-          FAQ
-        </Link>
-
-      </div>
-
-
-      <div>
-        {userName ? (
-          <div className="text-xl font-semibold text-green-400">
-            Hi {userName}
-          </div>
-        ) : (
+    <nav className="bg-[#0f172a] text-white shadow-md px-4 py-3">
+      <div className="flex items-center justify-between">
+        {/* Left: Logo and Title */}
+        <div className="flex items-center space-x-4">
+          <img src={logo} alt="Shop Logo" className="w-12 h-12 rounded-full" />
           <Link
-            to="/signin"
-            className={`text-2xl font-bold ${location.pathname === "/signin" ? "text-sky-400" : ""}`}
+            to="/"
+            className={`text-xl md:text-2xl font-bold ${location.pathname === "/" ? "text-sky-400" : ""}`}
           >
-            Sign In
+            Smile Shop
           </Link>
-        )}
+        </div>
+
+        {/* Hamburger Button for Small Screens */}
+        <button
+          className="md:hidden text-white"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
+        {/* Right: Menu items (hidden on small screens) */}
+        <div className="hidden md:flex space-x-8 items-center">
+          <Link
+            to="/cart"
+            className={`text-xl font-semibold hover:text-yellow-400 ${location.pathname === "/cart" ? "text-sky-400" : ""}`}
+          >
+            Cart
+          </Link>
+          <Link
+            to="/faq"
+            className={`text-xl font-semibold hover:text-yellow-400 ${location.pathname === "/faq" ? "text-sky-400" : ""}`}
+          >
+            FAQ
+          </Link>
+          {userName ? (
+            <div className="text-green-400 font-semibold">Hi {userName}</div>
+          ) : (
+            <Link
+              to="/signin"
+              className={`text-xl font-semibold hover:text-yellow-400 ${location.pathname === "/signin" ? "text-sky-400" : ""}`}
+            >
+              Sign In
+            </Link>
+          )}
+        </div>
       </div>
+
+      {/* Mobile Menu (only shown when open) */}
+      {menuOpen && (
+        <div className="md:hidden mt-4 space-y-3 text-center">
+          <Link
+            to="/cart"
+            className={`block text-lg font-medium hover:text-yellow-400 ${location.pathname === "/cart" ? "text-sky-400" : ""}`}
+            onClick={() => setMenuOpen(false)}
+          >
+            Cart
+          </Link>
+          <Link
+            to="/faq"
+            className={`block text-lg font-medium hover:text-yellow-400 ${location.pathname === "/faq" ? "text-sky-400" : ""}`}
+            onClick={() => setMenuOpen(false)}
+          >
+            FAQ
+          </Link>
+          {userName ? (
+            <div className="text-green-400 font-medium">Hi {userName}</div>
+          ) : (
+            <Link
+              to="/signin"
+              className={`block text-lg font-medium hover:text-yellow-400 ${location.pathname === "/signin" ? "text-sky-400" : ""}`}
+              onClick={() => setMenuOpen(false)}
+            >
+              Sign In
+            </Link>
+          )}
+        </div>
+      )}
     </nav>
   );
 }

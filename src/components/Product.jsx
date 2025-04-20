@@ -14,7 +14,7 @@ function Card({ proImg ,proTitle,proObj}) {
           borderRadius: "10px",
         }}
       ></div>
-      <div onClick={()=>{handleAddToCart(proObj); console.log("used");}} className="text-blue-400 h-8 w-30 flex justify-center items-center rounded-lg bg-blue-600/60 hover:cursor-pointer hover:scale-135">Add to cart</div>
+      <div onClick={()=>{handleAddToCart(proObj); console.log("used");}} className="text-blue-400 mt-2 text-1xl font-bold font-orbitron h-8 w-30 flex justify-center items-center rounded-lg bg-blue-600/60 hover:cursor-pointer hover:scale-135">Add to cart</div>
       <div className="opacity-50">{proTitle}</div>
       <div className="font-bold text-yellow-500">${proObj.price}</div>
     </div>

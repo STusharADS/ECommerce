@@ -34,12 +34,12 @@ function SignIn({ setUserName }) {
     }
 
     if (!phoneRegex.test(phone)) {
-      setError("Phone number must be 10 digits");
+      setError("Phone number invalid");
       return;
     }
 
     if (password.length < 6) {
-      setError("Password must be at least 6 characters");
+      setError("Password invalid");
       return;
     }
 

@@ -38,14 +38,19 @@ function ProductPage() {
   return (
     <div className="bg-gradient-to-br from-black via-[#0f172a] to-black min-h-screen text-white px-4">
       <Banner />
-      
+
       <div className="text-4xl text-yellow-400 font-extrabold italic text-center mt-8 mb-4 animate-pulse drop-shadow-lg">
-         Hot Deals 
+        Hot Deals
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 justify-items-center px-4 py-6">
+      <div className="grid gap-6 justify-center grid-cols-[repeat(auto-fit,_minmax(180px,_1fr))] max-w-7xl mx-auto px-2">
         {paginatedData.map((proObj) => (
-          <Card key={proObj.id} proImg={proObj.image} proTitle={proObj.title} proObj={proObj} />
+          <Card
+            key={proObj.id}
+            proImg={proObj.image}
+            proTitle={proObj.title}
+            proObj={proObj}
+          />
         ))}
       </div>
 

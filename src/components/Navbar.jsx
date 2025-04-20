@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../assets/logoShop.webp';
+import logo from '../assets/shoplogovibcopy3.jpeg';
 import { Link, useLocation } from 'react-router-dom';
 
 function Navbar({ userName }) {
@@ -9,12 +9,12 @@ function Navbar({ userName }) {
     <nav className="flex items-center justify-between px-6 py-4 bg-[#0f172a] text-white shadow-md">
 
       <div className="flex items-center space-x-8">
-        <img height="70px" width="70px" src={logo} alt="Shop Logo" />
+        <img height="100px" width="100px" src={logo} alt="Shop Logo" />
         <Link
           to="/"
           className={`text-2xl font-bold ${location.pathname === "/" ? "text-sky-400" : ""}`}
         >
-          Home
+          Smile Shop
         </Link>
         <Link
           to="/cart"

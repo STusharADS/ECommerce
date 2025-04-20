@@ -1,20 +1,46 @@
 import React from 'react';
 import logo from '../assets/logoShop.webp';
-import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom';
 
-function Navbar() { 
+function Navbar({ userName }) {
+  const location = useLocation();
 
-  const location = useLocation()
-  console.log(location)
   return (
-    <nav className="flex space-x-8 items-center pl-3 py-4">
-      <img height="70px" width="70px" src={logo} alt="Movie Logo" />
-      <Link to="/" className="text-blue-500 text-2xl font-bold" style={{color:(location.pathname==="/") ? 'skyblue' : ''}}> Home</Link>
-      <Link to="/cart" className="text-blue-500 text-2xl font-bold" style={{color:(location.pathname==="/cart") ? 'skyblue' : ''}}> Cart</Link>
-      <Link to="/signin" className="text-blue-500 text-2xl font-bold" style={{color:(location.pathname==="/signin") ? 'skyblue' : ''}}>Sign In</Link>
+    <nav className="flex items-center justify-between px-6 py-4 bg-[#0f172a] text-white shadow-md">
+
+      <div className="flex items-center space-x-8">
+        <img height="70px" width="70px" src={logo} alt="Shop Logo" />
+        <Link
+          to="/"
+          className={`text-2xl font-bold ${location.pathname === "/" ? "text-sky-400" : ""}`}
+        >
+          Home
+        </Link>
+        <Link
+          to="/cart"
+          className={`text-2xl font-bold ${location.pathname === "/cart" ? "text-sky-400" : ""}`}
+        >
+          Cart
+        </Link>
+      </div>
+
+      
+      <div>
+        {userName ? (
+          <div className="text-xl font-semibold text-green-400">
+            Hi {userName}
+          </div>
+        ) : (
+          <Link
+            to="/signin"
+            className={`text-2xl font-bold ${location.pathname === "/signin" ? "text-sky-400" : ""}`}
+          >
+            Sign In
+          </Link>
+        )}
+      </div>
     </nav>
   );
 }
 
-export default Navbar
+export default Navbar;

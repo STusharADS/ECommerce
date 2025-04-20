@@ -8,7 +8,6 @@ function ProductPage() {
   let [page, setPage] = useState(1)
   const productsPerPage = 16
 
-
   async function getProductPage() {
     let response = await fetch(`https://fakestoreapi.com/products`)
     let newData = await response.json()
@@ -18,7 +17,6 @@ function ProductPage() {
   useEffect(() => {
     getProductPage()
   }, [])
-
 
   const startIndex = (page - 1) * productsPerPage
   const endIndex = startIndex + productsPerPage
@@ -38,13 +36,14 @@ function ProductPage() {
   }
 
   return (
-    <div>
+    <div className="bg-gradient-to-br from-black via-[#0f172a] to-black min-h-screen text-white px-4">
       <Banner />
-      <div style={{ fontSize: "2.5rem", fontStyle: "italic", fontFamily: "cursive", fontWeight: "bold", color: "yellow", textAlign: "center" }}>
-        Hot Deals
+      
+      <div className="text-4xl text-yellow-400 font-extrabold italic text-center mt-8 mb-4 animate-pulse drop-shadow-lg">
+         Hot Deals 
       </div>
 
-      <div className='flex flex-wrap justify-between'>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 justify-items-center px-4 py-6">
         {paginatedData.map((proObj) => (
           <Card key={proObj.id} proImg={proObj.image} proTitle={proObj.title} proObj={proObj} />
         ))}

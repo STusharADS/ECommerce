@@ -1,12 +1,24 @@
-# React + Vite
+# 🛒 Smile Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek and responsive e-commerce website built with **React** and **Tailwind CSS**, featuring user authentication (via localStorage), a stylish navbar, and smooth product browsing. ✨
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- ⚡ Fast, mobile-first UI with Tailwind CSS  
+- 🔐 Sign In form with localStorage-based user session  
+- 👤 Personalized navbar with user's name  
+- 🧾 Validated user info: name, email, phone, and password  
+- 📱 Responsive hamburger menu using Lucide icons  
+- 🛍️ Shop page layout with placeholders for products  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧰 Tech Stack
+
+- React  
+- Tailwind CSS  
+- Lucide React (for icons)  
+
+
